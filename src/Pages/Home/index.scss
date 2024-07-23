@@ -1,0 +1,41 @@
+@import '../../Utils//style/variables.scss';
+
+.home {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px;
+  gap: 100px;
+
+  & .banner {
+    color: $white;
+    background-color: $black;
+  }
+  & .cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 50px;
+    background-color: $secondary-color;
+
+    & .card {
+      background-color: $primary-color;
+      width: 25%;
+      height: 300px;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    & .card-content {
+      color: $white;
+      font-size: 14px;
+    }
+  }
+}

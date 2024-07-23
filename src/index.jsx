@@ -1,28 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import './Utils/style/index.sass';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home';
+import FicheLogement from './Pages/Fiche-Logement';
+import APropos from './Pages/A-Propos';
+import NotFound from './Pages/404';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Accueil</Link>
-          </li>
-          <li>
-            <Link to="/Fiche-Logement">Fiche-Logement</Link>
-          </li>
-          <li>
-            <Link to="/A-Propos">A-Propos</Link>
-          </li>
-        </ul>
-      </nav>
+    <Router>
+      <Header />
       <Routes>
-        <Route></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/fiche-logement" element={<FicheLogement />} />
+        <Route path="/a-propos" element={<APropos />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+      <Footer />
+    </Router>
   </React.StrictMode>
 );
