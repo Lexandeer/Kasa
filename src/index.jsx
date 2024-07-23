@@ -13,6 +13,9 @@ root.render(
             <Link to="/">Accueil</Link>
           </li>
           <li>
+            <Link to="/Fiche-Logement">Fiche-Logement</Link>
+          </li>
+          <li>
             <Link to="/A-Propos">A-Propos</Link>
           </li>
         </ul>
