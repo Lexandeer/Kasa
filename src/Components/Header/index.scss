@@ -1,0 +1,33 @@
+@import '../../Utils//style/variables.scss';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  margin-left: 100px;
+  margin-top: 30px;
+
+  .nav {
+    margin-right: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .liste {
+      display: flex;
+      gap: 50px;
+      font-size: 24px;
+
+      li {
+        list-style-type: none;
+
+        .lien {
+          text-decoration: none;
+          color: $black;
+        }
+        & .lien:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

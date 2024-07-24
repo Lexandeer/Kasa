@@ -1,9 +1,12 @@
 import React from 'react';
+import './index.scss';
+import whiteLogo from '../../Utils/assets/white-logo.png';
 
 function Footer() {
   return (
-    <footer>
-      <h1>Footer</h1>
+    <footer className="footer">
+      <img className="image" src={whiteLogo}></img>
+      <h1 className="rights">© 2020 Kasa. All rights reserved</h1>
     </footer>
   );
 }

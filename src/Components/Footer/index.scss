@@ -1,0 +1,20 @@
+@import '../../Utils//style/variables.scss';
+
+.footer {
+  background-color: $header-footer-bg-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  gap: 20px;
+  width: 100%;
+
+  .image {
+    width: 10%;
+  }
+  .rights {
+    color: $white;
+    font-size: 18px;
+  }
+}

@@ -7,6 +7,7 @@ import APropos from './Pages/A-Propos';
 import NotFound from './Pages/404';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import './Utils/style/globalStyle.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,7 @@ root.render(
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/fiche-logement" element={<FicheLogement />} />
+        <Route path="/logement/:id" element={<FicheLogement />} />
         <Route path="/a-propos" element={<APropos />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
