@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import './index.scss';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { logementPropTypes } from '../../Utils/prop-types';
 import bannerImage from '../../Utils/assets/image-banner-backGround.png';
@@ -22,11 +23,13 @@ Banner.propTypes = {
 
 function Card({ logement }) {
   return (
-    <article className="card">
-      <div className="card-content">
-        <h2>{logement.location}</h2>
-      </div>
-    </article>
+    <Link to={`/logement/${logement.id}`} className="card">
+      <article className="card">
+        <div className="card-content">
+          <h2>{logement.location}</h2>
+        </div>
+      </article>
+    </Link>
   );
 }
 
