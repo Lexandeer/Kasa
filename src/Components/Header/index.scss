@@ -3,11 +3,9 @@
 .header {
   display: flex;
   flex-direction: row;
-  margin-left: 100px;
-  margin-top: 30px;
+  margin: 30px 100px 80px 100px;
 
   .nav {
-    margin-right: 100px;
     width: 100%;
     display: flex;
     justify-content: flex-end;

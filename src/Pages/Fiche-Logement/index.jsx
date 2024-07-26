@@ -4,15 +4,14 @@ import './index.scss';
 import PropTypes from 'prop-types';
 import { logementPropTypes } from '../../Utils/prop-types';
 import { useParams } from 'react-router-dom';
+import arrowLeft from '../../Utils/assets/arrow_left.png';
+import arrowRight from '../../Utils/assets/arrow_right.png';
+import starFilled from '../../Utils/assets/starFilled.png';
+import starEmpty from '../../Utils/assets/starEmpty.png';
 //import DropDownOpen from '../../Components/Dropdown-open';
 
 function Carrousel({ logement }) {
   const [index, setIndex] = useState(0);
-
-  if (!logement || !logement.pictures) {
-    // Affiche un message de chargement si logement ou pictures est null
-    return <div>Chargement...</div>;
-  }
 
   const handleNext = () => {
     //Je me sert ici de %(modulo) pour boucler l'index et m'assurer que l'index reste entre 0 et n-1
@@ -29,27 +28,76 @@ function Carrousel({ logement }) {
   return (
     <div>
       <section>
-        <div>
-          <button className="arrow-right" onClick={handleNext}>
-            <img src="assets\images\arrow_right.png" />
+        <div className="ficheLogement__carrousel">
+          <button
+            className="ficheLogement__carrousel__arrow ficheLogement__carrousel__arrow--right"
+            onClick={handleNext}
+          >
+            <img src={arrowRight} />
           </button>
-          <button className="arrow-left" onClick={handlePrev}>
-            <img src="assets\images\arrow_left.png" />
+          <button
+            className="ficheLogement__carrousel__arrow ficheLogement__carrousel__arrow--left"
+            onClick={handlePrev}
+          >
+            <img src={arrowLeft} />
           </button>
-          <img src={logement.pictures[index]}></img>
-          <span className="numberOf">
+          {/*Images de pictures pour le carrousel */}
+          <img
+            src={logement.pictures[index]}
+            className="ficheLogement__carrousel__pictures"
+          ></img>
+          <span className="ficheLogement__carrousel__numberOf">
             {index + 1}/{logement.pictures.length}
           </span>
         </div>
-        <div>
-          <h1>{logement.title}</h1>
-          <p>{logement.location}</p>
+
+        <div className="ficheLogement__carrousel__description">
+          <div className="ficheLogement__carrousel__description__titleAndTags">
+            <h1 className="ficheLogement__carrousel__description__titleAndTags__title">
+              {logement.title}
+            </h1>
+            <span className="ficheLogement__carrousel__description__titleAndTags__location">
+              {logement.location}
+            </span>
+            <div className="ficheLogement__carrousel__description__titleAndTags__tags">
+              {logement.tags.map((tag) => (
+                <span
+                  className="ficheLogement__carrousel__description__titleAndTags__tags__tag"
+                  key={`${logement.id}-${tag}`}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="ficheLogement__carrousel__description__nameAndRating">
+            <div className="ficheLogement__carrousel__description__nameAndRating__profile">
+              <h3 className="ficheLogement__carrousel__description__nameAndRating__profile__name">
+                {logement.host.name}
+              </h3>
+              <div className="ficheLogement__carrousel__description__nameAndRating__profile__image-container">
+                <img
+                  className="ficheLogement__carrousel__description__nameAndRating__profile__image"
+                  src={logement.host.picture}
+                ></img>
+              </div>
+            </div>
+
+            <div className="ficheLogement__carrousel__description__nameAndRating__rating">
+              {Array.from({ length: 5 }, (_, i) => (
+                <img
+                  key={`${logement.id}-${i}`}
+                  src={i < logement.rating ? starFilled : starEmpty}
+                  alt={i < logement.rating ? 'Filled Star' : 'Empty Star'}
+                  className="ficheLogement__carrousel__description__nameAndRating__rating__image"
+                />
+              ))}
+            </div>
+          </div>
         </div>
-        <div>
-          <span>{/* one span for every tags*/}</span>
-          <i>{/* stars by rating*/}</i>
-        </div>
-        <div>
+
+        <div className="dropDownOpen">
           {/* <DropDownOpen />
           <DropDownOpen />*/}
         </div>
@@ -86,10 +134,20 @@ function FicheLogement() {
     fetchData();
   }, [id]);
 
+  // Affiche un message de chargement si logement ou pictures est null pour éviter les erreurs
+  // et informer l'utilisateur que les données sont en cours de récupération.
+  if (!logement) {
+    return <div>Chargement...</div>;
+  }
+
   return (
     <div>
-      <main>
-        <Carrousel logement={logement} />
+      <main className="ficheLogement">
+        <Carrousel
+          logement={logement}
+          arrow-right-img={arrowRight}
+          arrow-left-img={arrowLeft}
+        />
       </main>
     </div>
   );

@@ -23,7 +23,7 @@ Banner.propTypes = {
 
 function Card({ logement }) {
   return (
-    <Link to={`/logement/${logement.id}`} className="card">
+    <Link to={`/logement/${logement.id}`} className="card-link">
       <article className="card">
         <div className="card-content">
           <h2>{logement.location}</h2>

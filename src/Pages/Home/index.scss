@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 100px;
+  margin: 0px 100px 0px 100px;
   gap: 100px;
 
   .banner {
@@ -56,34 +56,39 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   gap: 60px;
   background-color: $secondary-color;
   border-radius: 40px;
 
-  .card {
-    display: flex;
-    flex-direction: row;
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(10, 10, 10, 0) 42%,
-        rgba(4, 4, 4, 0.205) 99.99%,
-        rgba(0, 0, 0, 0.5) 100%
-      ),
-      $primary-color;
-    width: 350px;
-    height: 350px;
-    justify-content: flex-start;
-    align-items: flex-end;
-    border-radius: 20px;
-  }
-  .card-content {
-    padding-left: 40px;
-    padding-bottom: 20px;
-    color: $white;
-    font-size: 14px;
+  .card-link {
+    text-decoration: none;
+
+    .card {
+      display: flex;
+      flex-direction: row;
+      background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(10, 10, 10, 0) 42%,
+          rgba(4, 4, 4, 0.205) 99.99%,
+          rgba(0, 0, 0, 0.5) 100%
+        ),
+        $primary-color;
+      width: 350px;
+      height: 350px;
+      justify-content: flex-start;
+      align-items: flex-end;
+      border-radius: 20px;
+
+      .card-content {
+        padding-left: 40px;
+        padding-bottom: 20px;
+        color: $white;
+        font-size: 14px;
+      }
+    }
   }
 }
 
