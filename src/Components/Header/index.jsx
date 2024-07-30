@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './index.scss';
-import logo from '../../Utils/assets/logo.png';
+import { headerLogo } from '../../Utils/assets/Header/index.jsx';
 
 function Header() {
   return (
     <header className="header">
       <div className="logo">
         <Link to="/">
-          <img src={logo} alt="Logo Kasa"></img>
+          <img src={headerLogo} alt="Logo Kasa"></img>
         </Link>
       </div>
       <nav className="nav">
