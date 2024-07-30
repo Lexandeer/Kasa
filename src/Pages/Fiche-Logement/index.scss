@@ -1,9 +1,9 @@
 @import '../../Utils/style/variables.scss';
 
-.ficheLogement {
+.fiche-logement {
   margin: 0 100px 0 100px;
 
-  &__carrousel {
+  .fiche-logement__carrousel {
     position: relative;
     width: 100%;
     height: 450px;
@@ -11,19 +11,20 @@
     overflow: hidden;
     border-radius: 25px;
 
-    &__pictures {
+    .carrousel__pictures {
       object-fit: cover;
       width: 100%;
       height: 100%;
     }
 
-    &__arrow {
+    .carrousel__arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       font-size: 24px;
       background: none;
       border: none;
+      cursor: pointer;
 
       &--left {
         left: 10px;
@@ -34,73 +35,110 @@
       }
     }
 
-    &__description {
+    .carrousel__number-of {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  }
+
+  .fiche-logement__description {
+    display: flex;
+    justify-content: space-between;
+
+    .description__title-tags {
       display: flex;
-      justify-content: space-between;
-      &__titleAndTags {
+      flex-direction: column;
+
+      .title-tags__title {
+        font-size: 28px;
+        margin-bottom: 5px;
+        color: $primary-color;
+        margin-top: 50px;
+        font-weight: 600;
+      }
+
+      .title-tags__location {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .title-tags__tags {
         display: flex;
-        flex-direction: column;
-        &__title {
-          font-size: 28px;
-          margin-bottom: 5px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 30px;
+        max-width: 800px;
+
+        .tags__tag {
+          background-color: $primary-color;
+          padding: 10px 50px;
+          border-radius: 15px;
+          color: $white;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .description__profile-rating {
+      display: flex;
+      flex-direction: column;
+
+      .profile-rating__profile {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 30px;
+        gap: 20px;
+
+        .profile__name {
           color: $primary-color;
-          margin-top: 50px;
-          font-weight: 600;
+          font-size: 22px;
+          font-weight: 500;
+          max-width: 200px;
         }
-        &__location {
-          font-size: 18px;
-          font-weight: 600;
-        }
-        &__tags {
+
+        .profile__image-container {
           display: flex;
-          flex-direction: row;
-          gap: 20px;
-          margin-top: 30px;
-          &__tag {
-            background-color: $primary-color;
-            padding: 10px 50px 10px 50px;
-            border-radius: 15px;
-            color: $white;
-            font-weight: 600;
+          border-radius: 50%;
+          width: 80px;
+          height: 80px;
+          overflow: hidden;
+
+          .profile__image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
           }
         }
       }
-      &__nameAndRating {
+
+      .profile-rating__rating {
         display: flex;
-        flex-direction: column;
-        &__profile {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          margin-top: 30px;
-          gap: 20px;
-          &__name {
-            color: $primary-color;
-            font-size: 22px;
-            font-weight: 500;
-            max-width: 200px;
-          }
-          &__image-container {
-            display: flex;
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            overflow: hidden;
-            &__image {
-              object-fit: cover;
-            }
-          }
-        }
-        &__rating {
-          display: flex;
-          justify-content: flex-end;
-          width: 300px;
-          margin-top: 25px;
-          &__image {
-            width: 50px;
-          }
+        justify-content: flex-end;
+        width: 300px;
+        margin-top: 25px;
+
+        .rating__star {
+          width: 50px;
         }
       }
+    }
+  }
+
+  .fiche-logement__drop-down-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 40px;
+
+    .drop-down-container {
+      flex: 1;
     }
   }
 }

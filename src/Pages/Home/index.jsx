@@ -4,7 +4,7 @@ import './index.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { logementPropTypes } from '../../Utils/prop-types';
-import bannerImage from '../../Utils/assets/image-banner-backGround.png';
+import { bannerImage } from '../../Utils/assets/Home/index.jsx';
 
 function Banner({ title, image }) {
   return (
