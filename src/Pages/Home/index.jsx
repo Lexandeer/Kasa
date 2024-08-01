@@ -4,28 +4,18 @@ import './index.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { logementPropTypes } from '../../Utils/prop-types';
-import { bannerImage } from '../../Utils/assets/Home/index.jsx';
-
-function Banner({ title, image }) {
-  return (
-    <div className="banner">
-      <div className="overlay"></div>
-      <img className="banner-img" src={image}></img>
-      <h1 className="title">{title}</h1>
-    </div>
-  );
-}
-// Définition des types de props pour le composant Banner.
-Banner.propTypes = {
-  title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-};
+import Banner from '../../Components/Banner/index.jsx';
+import { bannerHome } from '../../Utils/assets/Home/index.jsx';
 
 function Card({ logement }) {
   return (
-    <Link to={`/logement/${logement.id}`} className="card-link">
-      <article className="card">
-        <div className="card-content">
+    <Link to={`/logement/${logement.id}`} className="home__cards__card-link">
+      <article className="home__cards__card-link__card">
+        <img
+          className="home__cards__card-link__card__card-image"
+          src={logement.cover}
+        ></img>
+        <div className="home__cards__card-link__card__card-content">
           <h2>{logement.location}</h2>
         </div>
       </article>
@@ -41,7 +31,7 @@ Card.propTypes = {
 
 function Cards({ logements }) {
   return (
-    <div className="cards">
+    <div className="home__cards">
       {/*On créer une card pour chaque logement trouvé dans la liste.*/}
       {logements.map((logement) => (
         <Card key={logement.id} logement={logement} />
@@ -78,7 +68,7 @@ function Home() {
   return (
     <div>
       <main className="home">
-        <Banner title="Chez vous, partout et ailleurs" image={bannerImage} />
+        <Banner title="Chez vous, partout et ailleurs" image={bannerHome} />
         {/* On passe la prop logements à Cards.*/}
         <Cards logements={logements} />
       </main>

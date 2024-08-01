@@ -6,20 +6,20 @@ import { headerLogo } from '../../Utils/assets/Header/index.jsx';
 function Header() {
   return (
     <header className="header">
-      <div className="logo">
+      <div>
         <Link to="/">
           <img src={headerLogo} alt="Logo Kasa"></img>
         </Link>
       </div>
-      <nav className="nav">
-        <ul className="liste">
+      <nav className="header__nav">
+        <ul className="header__nav__liste">
           <li>
-            <Link className="lien" to="/">
+            <Link className="header__nav__liste__lien" to="/">
               Accueil
             </Link>
           </li>
           <li>
-            <Link className="lien" to="/a-propos">
+            <Link className="header__nav__liste__lien" to="/a-propos">
               A-Propos
             </Link>
           </li>

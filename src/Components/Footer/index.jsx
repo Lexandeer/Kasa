@@ -5,8 +5,8 @@ import { footerLogo } from '../../Utils/assets/Footer/index.jsx';
 function Footer() {
   return (
     <footer className="footer">
-      <img className="image" src={footerLogo}></img>
-      <h1 className="rights">© 2020 Kasa. All rights reserved</h1>
+      <img className="footer__image" src={footerLogo}></img>
+      <h1 className="footer__rights">© 2020 Kasa. All rights reserved</h1>
     </footer>
   );
 }

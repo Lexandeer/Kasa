@@ -34,7 +34,7 @@ function DropDown({ title, content, id }) {
             ))}
           </ul>
         ) : (
-          <p className="container-content__content">{content}</p>
+          <div className="container-content__content">{content}</div>
         )}
       </div>
     </div>
@@ -43,8 +43,12 @@ function DropDown({ title, content, id }) {
 
 DropDown.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
-  id: PropTypes.string.isRequired,
+  content: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.element, //Permet d'accepter du contenu jsx en prop
+  ]).isRequired,
+  id: PropTypes.string,
 };
 
 export default DropDown;

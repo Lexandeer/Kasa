@@ -5,12 +5,12 @@
   flex-direction: row;
   margin: 30px 100px 80px 100px;
 
-  .nav {
+  .header__nav {
     width: 100%;
     display: flex;
     justify-content: flex-end;
 
-    .liste {
+    .header__nav__liste {
       display: flex;
       gap: 50px;
       font-size: 24px;
@@ -18,12 +18,13 @@
       li {
         list-style-type: none;
 
-        .lien {
+        .header__nav__liste__lien {
           text-decoration: none;
           color: $black;
-        }
-        & .lien:hover {
-          text-decoration: underline;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

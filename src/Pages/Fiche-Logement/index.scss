@@ -137,6 +137,11 @@
     gap: 80px;
     margin-top: 40px;
 
+    .expanded {
+      max-height: 600px;
+      transition: max-height 0.4s ease-out;
+    }
+
     .drop-down-container {
       flex: 1;
     }

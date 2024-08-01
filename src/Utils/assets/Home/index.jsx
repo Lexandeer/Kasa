@@ -1,3 +1,3 @@
-import bannerImage from '../Home/image-banner-backGround.png';
+import bannerHome from '../Home/banner-home.png';
 
-export { bannerImage };
+export { bannerHome };

@@ -5,6 +5,8 @@
   flex-direction: column;
   max-height: 30px;
   transition: max-height 0.4s ease-out;
+  min-height: 70px;
+  margin: 20px;
 
   .drop-down__title-arrow {
     display: flex;
@@ -45,8 +47,4 @@
       font-weight: 500;
     }
   }
-}
-.expanded {
-  max-height: 600px;
-  transition: max-height 0.4s ease-out;
 }
