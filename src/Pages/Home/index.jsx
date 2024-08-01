@@ -55,7 +55,6 @@ function Home() {
         // Vérifiez que ce chemin est correct
         const response = await fetch('/logements.json');
         const data = await response.json();
-        console.log('Données récupérées:', data); // Debug: log des données récupérées
         setLogements(data);
       } catch (error) {
         console.error('Erreur lors de la récupération des données:', error);
@@ -66,13 +65,11 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <main className="home">
-        <Banner title="Chez vous, partout et ailleurs" image={bannerHome} />
-        {/* On passe la prop logements à Cards.*/}
-        <Cards logements={logements} />
-      </main>
-    </div>
+    <main className="home">
+      <Banner title="Chez vous, partout et ailleurs" image={bannerHome} />
+      {/* On passe la prop logements à Cards.*/}
+      <Cards logements={logements} />
+    </main>
   );
 }
 

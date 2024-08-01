@@ -30,3 +30,20 @@
     }
   }
 }
+
+@media (max-width: 750px) {
+  .header {
+    margin: 30px 15px 30px 15px;
+    align-items: center;
+    .header__logo {
+      width: 130px;
+    }
+
+    .header__nav {
+      .header__nav__liste {
+        gap: 30px;
+        font-size: 4vw;
+      }
+    }
+  }
+}

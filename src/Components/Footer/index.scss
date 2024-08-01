@@ -19,3 +19,23 @@
     font-size: 18px;
   }
 }
+
+@media (max-width: 375px) {
+  .footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 15px;
+    margin-top: 20px;
+
+    .footer__image {
+      width: 30%;
+    }
+    .footer__rights {
+      color: $white;
+      font-size: 12px;
+      max-width: 100px;
+      text-align: center;
+      font-weight: 300;
+    }
+  }
+}

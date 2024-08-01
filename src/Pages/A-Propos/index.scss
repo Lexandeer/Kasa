@@ -9,10 +9,12 @@
   .a-propos-container__container-drop-down {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 
     margin: 50px 100px 0 100px;
 
     .drop-down-container {
+      min-height: 70px;
       .drop-down__title-arrow {
         .title-arrow__title {
           font-size: 28px;
@@ -22,6 +24,56 @@
   }
 }
 .expanded {
-  max-height: 200px;
+  max-height: 600px;
   transition: max-height 0.4s ease-out;
+}
+
+@media (max-width: 900px) {
+  .a-propos-container {
+    margin: 0 15px 0 15px;
+
+    .banner {
+      height: 150px;
+    }
+
+    .a-propos-container__container-drop-down {
+      margin: 50px 0 50px 0;
+
+      .drop-down-container {
+        min-height: 60px;
+        .drop-down__title-arrow {
+          padding: 10px;
+          .title-arrow__title {
+            font-size: 4vw;
+          }
+          .title-arrow__arrow {
+            width: 35px;
+          }
+        }
+        .drop-down__container-content {
+          .container-content__content {
+            font-size: 3vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1500px) {
+  .a-propos-container {
+    margin-bottom: 5vw;
+  }
+}
+
+@media (min-width: 1600px) {
+  .a-propos-container {
+    margin-bottom: 10vw;
+  }
+}
+
+@media (min-width: 1800px) {
+  .a-propos-container {
+    margin-bottom: 15vw;
+  }
 }

@@ -39,7 +39,6 @@
       position: absolute;
       bottom: 10px;
       right: 10px;
-      background: rgba(0, 0, 0, 0.5);
       color: #fff;
       padding: 5px 10px;
       border-radius: 5px;
@@ -145,5 +144,114 @@
     .drop-down-container {
       flex: 1;
     }
+  }
+}
+
+@media (max-width: 700px) {
+  .fiche-logement {
+    margin: 0 15px 0 15px;
+
+    .fiche-logement__carrousel {
+      height: 300px;
+
+      .carrousel__arrow {
+        img {
+          width: 25px;
+        }
+      }
+
+      .carrousel__number-of {
+        display: none;
+      }
+    }
+
+    .fiche-logement__description {
+      flex-direction: column;
+
+      .description__title-tags {
+        .title-tags__title {
+          font-size: 22px;
+        }
+
+        .title-tags__location {
+          margin-top: 10px;
+          font-size: 16px;
+        }
+
+        .title-tags__tags {
+          .tags__tag {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .description__profile-rating {
+        flex-direction: row;
+
+        .profile-rating__profile {
+          order: 1;
+
+          .profile__name {
+            text-align: end;
+            font-size: 20px;
+          }
+
+          .profile__image-container {
+            height: 60px;
+          }
+        }
+
+        .profile-rating__rating {
+          justify-content: flex-start;
+          margin-top: 25px;
+
+          .rating__star {
+            width: 25px;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+
+    .fiche-logement__drop-down-container {
+      flex-direction: column;
+      gap: 15px;
+
+      .drop-down-container {
+        margin: 0;
+        .drop-down__title-arrow {
+          padding: 10px 15px 10px 15px;
+          .title-arrow__title {
+            font-size: 18px;
+          }
+          .title-arrow__arrow {
+            width: 30px;
+          }
+        }
+        .drop-down__container-content {
+          .container-content__content {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1500px) {
+  .fiche-logement {
+    margin-bottom: 5vw;
+  }
+}
+
+@media (min-width: 1600px) {
+  .fiche-logement {
+    margin-bottom: 10vw;
+  }
+}
+
+@media (min-width: 1800px) {
+  .fiche-logement {
+    margin-bottom: 15vw;
   }
 }

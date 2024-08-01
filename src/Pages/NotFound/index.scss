@@ -21,3 +21,21 @@
     font-weight: 500;
   }
 }
+
+@media (max-width: 1000px) {
+  .container-error {
+    gap: 100px;
+    margin: 110px 15px 100px 15px;
+    .container-error__error {
+      font-size: 100px;
+    }
+    .container-error__message {
+      font-size: 24px;
+      text-align: center;
+    }
+    .container-error__link {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}

@@ -5,10 +5,12 @@ import { arrowDrop } from '../../Utils/assets/DropDown/index.jsx';
 import '../../Utils/style/animation.scss';
 
 function DropDown({ title, content, id }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(null);
 
   const toggleDropDow = () => {
-    setIsOpen(!isOpen);
+    //Si l'état prev est null alors le state passe à true et si il est à true il passe à false
+    //Mettre le state à Null permet de ne pas afficher l'animation 'retour' lorsque le dropDown est fermé
+    setIsOpen((prevState) => (prevState === null ? true : !prevState));
   };
 
   return (
@@ -20,12 +22,12 @@ function DropDown({ title, content, id }) {
           alt="Fleche"
           /*La classe dynamique permet de changer de classe en fonction d'un évenement ou d'une condition.
             ici j'utilise la méthode ternaire et useState pour créer cette condition */
-          className={`title-arrow__arrow ${isOpen ? 'rotate' : 'no-rotate'}`}
+          className={`title-arrow__arrow ${isOpen === null ? '' : isOpen ? 'rotate' : 'no-rotate'}`}
           onClick={toggleDropDow}
         ></img>
       </div>
       <div
-        className={`drop-down__container-content  ${isOpen ? 'show-dropDown ' : 'hide-dropDown'}`}
+        className={`drop-down__container-content  ${isOpen === null ? 'no-opacity' : isOpen ? 'show-dropDown ' : 'hide-dropDown'}`}
       >
         {Array.isArray(content) ? (
           <ul className="container-content__content">

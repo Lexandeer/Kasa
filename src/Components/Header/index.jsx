@@ -8,7 +8,7 @@ function Header() {
     <header className="header">
       <div>
         <Link to="/">
-          <img src={headerLogo} alt="Logo Kasa"></img>
+          <img className="header__logo" src={headerLogo} alt="Logo Kasa"></img>
         </Link>
       </div>
       <nav className="header__nav">

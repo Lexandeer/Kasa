@@ -17,10 +17,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      white-space: nowrap;
+      text-align: center;
+      width: 100%;
       color: $white;
       z-index: 2;
-      margin: 0;
     }
     .banner__overlay {
       position: absolute;
@@ -73,14 +73,40 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 700px) {
+  .home {
+    margin: 0px 15px 0px 15px;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 375px) {
   .home {
     .banner {
-    }
-    .cards {
-      .card {
+      height: 120px;
+      .banner__title {
+        font-size: 24px;
+        top: 50%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        text-align: start;
       }
-      .card-content {
+    }
+
+    .home__cards {
+      background-color: $white;
+      padding: 0;
+      gap: 25px;
+      .home__cards__card-link {
+        .home__cards__card-link__card {
+          width: 335px;
+          height: 255px;
+          .home__cards__card-link__card__card-image {
+          }
+          .home__cards__card-link__card__card-content {
+            font-size: 12px;
+          }
+        }
       }
     }
   }
