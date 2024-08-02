@@ -1,0 +1,21 @@
+@import '../../Utils//style/variables.scss';
+
+.home__cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  gap: 60px;
+  background-color: $secondary-color;
+  border-radius: 40px;
+}
+
+@media (max-width: 375px) {
+  .home__cards {
+    background-color: $white;
+    padding: 0;
+    gap: 25px;
+  }
+}

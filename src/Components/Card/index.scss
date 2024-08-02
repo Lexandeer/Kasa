@@ -1,0 +1,45 @@
+@import '../../Utils//style/variables.scss';
+
+.home__cards {
+  .home__cards__card-link {
+    text-decoration: none;
+
+    .home__cards__card-link__card {
+      width: 350px;
+      height: 350px;
+      border-radius: 20px;
+      position: relative;
+
+      .home__cards__card-link__card__card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        position: absolute;
+      }
+      .home__cards__card-link__card__card-content {
+        padding-left: 20px;
+        padding-bottom: 20px;
+        color: $white;
+        font-size: 14px;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .home__cards {
+    .home__cards__card-link {
+      .home__cards__card-link__card {
+        width: 335px;
+        height: 255px;
+
+        .home__cards__card-link__card__card-content {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
