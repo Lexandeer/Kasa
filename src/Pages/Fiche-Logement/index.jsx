@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import DropDown from '../../Components/DropDown/index.jsx';
 import Carrousel from '../../Components/Carrousel/index.jsx';
 
 function FicheLogement() {
-  // Récupère l'ID du logement à partir de l'URL
+  // Récupère l'ID du logement à partir de l'URL grâce à useParams
   const { id } = useParams();
+  // Initialise le hook useNavigate pour permettre la navigation programmée
+  const navigate = useNavigate();
+  // Déclare un état local 'logement' pour stocker les données du logement récupéré.
+  // On initialise à null pour indiquer que le logement n'a pas encore été chargé.
   const [logement, setLogement] = useState(null);
 
   useEffect(() => {
@@ -14,17 +18,24 @@ function FicheLogement() {
       try {
         // Récupère les données du fichier logements.json
         const response = await fetch('/logements.json');
+        // Converti ces données
         const data = await response.json();
         // Trouve le logement correspondant à l'ID dans les données
         //(item) correspond au logement, on cherche à retrouver le logement qui a le même ID que dans l'URL
         const foundLogement = data.find((item) => item.id === id);
-        // Met à jour l'état avec le logement trouvé
-        setLogement(foundLogement);
+
+        if (foundLogement) {
+          // Met à jour l'état avec le logement trouvé
+          setLogement(foundLogement);
+        } else {
+          // Redirige vers la page NotFound si l'ID n'est pas trouvé grâce au hook useNavigate
+          navigate('/not-found');
+        }
       } catch (error) {
         console.error('Erreur lors de la récupération des données:', error);
+        navigate('/not-found');
       }
     }
-
     fetchData();
   }, [id]);
 

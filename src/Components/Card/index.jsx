@@ -21,6 +21,7 @@ function Card({ logement }) {
 }
 
 // Définition des types de props pour le composant Card et pour le props(logement(sans S)) avec propTypes.shape.
+// '.shape' défini la prop passé comme ayant une structure particulière : (logement.PropTypes )
 //Ici la prop passé par Cards est un objet unique donc l'utilisation de arrayOf n'est pas neccessaire.
 Card.propTypes = {
   logement: PropTypes.shape(logementPropTypes).isRequired,

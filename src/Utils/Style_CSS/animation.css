@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/* Animation pour afficher le contenu */
+@keyframes slideDown {
+  0% {
+    clip-path: inset(100% 0% 0% 0%);
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 0%);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Animation pour masquer le contenu
+    Clip path permet de définir une région de clipping et de 
+    masquer ce qui sort de cette région pour donner cette effet 
+    de tiroir.
+*/
+@keyframes slideUp {
+  0% {
+    clip-path: inset(0% 0% 0% 0%);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(100% 0% 0% 0%);
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+.show-dropDown {
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+.hide-dropDown {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.no-rotate {
+  transform: rotate(0deg);
+}/*# sourceMappingURL=animation.css.map */

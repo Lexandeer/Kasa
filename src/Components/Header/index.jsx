@@ -7,6 +7,7 @@ function Header() {
   return (
     <header className="header">
       <div>
+        {/* Lien de navigation vers la page d'accueil */}
         <Link to="/">
           <img className="header__logo" src={headerLogo} alt="Logo Kasa"></img>
         </Link>
@@ -14,11 +15,13 @@ function Header() {
       <nav className="header__nav">
         <ul className="header__nav__liste">
           <li>
+            {/* Lien de navigation vers la page d'accueil */}
             <Link className="header__nav__liste__lien" to="/">
               Accueil
             </Link>
           </li>
           <li>
+            {/* Lien de navigation vers la page À propos */}
             <Link className="header__nav__liste__lien" to="/a-propos">
               A-Propos
             </Link>
