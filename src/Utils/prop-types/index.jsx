@@ -1,19 +1,23 @@
-import PropTypes from 'prop-types';
-
-const logementPropTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  cover: PropTypes.string.isRequired,
-  pictures: PropTypes.arrayOf(PropTypes.string).isRequired,
-  description: PropTypes.string.isRequired,
-  host: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    picture: PropTypes.string.isRequired,
-  }).isRequired,
-  rating: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  equipments: PropTypes.arrayOf(PropTypes.string).isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
-
-export { logementPropTypes };
+export default function checkType(name, expectedType) {
+  if (expectedType === 'array') {
+    // Vérifie si la valeur est un tableau
+    if (!Array.isArray(name)) {
+      throw new Error(`Type error: Expected an array but got '${typeof name}'`);
+    }
+  } else if (expectedType === 'object') {
+    // Vérifie si la valeur est un objet (et non un tableau ou null)
+    //En JavaScript, l'opérateur typeof renvoie "object" pour les objets, mais aussi pour null et les tableaux.
+    if (typeof name !== 'object' || Array.isArray(name) || name === null) {
+      throw new Error(
+        `Type error: Expected an object but got '${typeof name}'`
+      );
+    }
+  } else {
+    // Vérifie les types primitifs (string, number, etc.)
+    if (typeof name !== expectedType) {
+      throw new Error(
+        `Type error: Expected type '${expectedType}' but got '${typeof name}'`
+      );
+    }
+  }
+}

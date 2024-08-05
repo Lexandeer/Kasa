@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import './index.scss';
-import PropTypes from 'prop-types';
 import { arrowDrop } from '../../Utils/assets/DropDown/index.jsx';
 import '../../Utils/style/animation.scss';
+import checkType from '../../Utils/prop-types/index.jsx';
 
 function DropDown({ title, content, id }) {
+  checkType(title, 'string');
+  checkType(id, 'string');
+  // "Content" peut être un tableau ou une string en fonction du logement.
+  if (typeof content !== 'string' && !Array.isArray(content)) {
+    throw new Error(
+      `Type error: expected type was string or array but got '${typeof content}'`
+    );
+  }
   // On déclare un état local 'isOpen' pour suivre l'état du drop-down (ouvert ou fermé).
   const [isOpen, setIsOpen] = useState(null);
 
@@ -56,14 +64,5 @@ function DropDown({ title, content, id }) {
 }
 
 // Définit les types de prop attendus pour le composant DropDown
-DropDown.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.oneOfType([
-    PropTypes.string, // Le contenu peut être soit une chaîne de caractères
-    PropTypes.array, // soit un tableau
-    PropTypes.element, // soit un élément JSX
-  ]).isRequired,
-  id: PropTypes.string,
-};
 
 export default DropDown;

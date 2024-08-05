@@ -6,10 +6,20 @@ import {
   starEmpty,
 } from '../../Utils/assets/Carrousel/index.jsx';
 import './index.scss';
-import PropTypes from 'prop-types';
-import { logementPropTypes } from '../../Utils/prop-types';
+import checkType from '../../Utils/prop-types/index.jsx';
 
 function Carrousel({ logement }) {
+  // Vérifie le type des props
+  checkType(logement, 'object');
+  checkType(logement.pictures, 'array');
+  checkType(logement.title, 'string');
+  checkType(logement.location, 'string');
+  checkType(logement.host, 'object');
+  checkType(logement.host.name, 'string');
+  checkType(logement.host.picture, 'string');
+  checkType(Number(logement.rating), 'number'); // Conversion en nombre car dans logement, le rating est stocker sous forme de chaîne de caractères
+  checkType(logement.tags, 'array');
+
   // Déclare un state local 'index' pour suivre l'image actuellement affichée dans le carrousel.
   const [index, setIndex] = useState(0);
 
@@ -113,9 +123,5 @@ function Carrousel({ logement }) {
     </div>
   );
 }
-
-Carrousel.propTypes = {
-  logement: PropTypes.shape(logementPropTypes).isRequired,
-};
 
 export default Carrousel;

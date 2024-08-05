@@ -1,8 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './index.scss';
+import checkType from '../../Utils/prop-types';
 
 function Banner({ title, image }) {
+  // Définition des types de props pour le composant Banner.
+  checkType(title, 'string');
+  checkType(image, 'string');
+
   return (
     <div className="banner">
       <div className="banner__overlay"></div>
@@ -12,10 +16,5 @@ function Banner({ title, image }) {
     </div>
   );
 }
-// Définition des types de props pour le composant Banner.
-Banner.propTypes = {
-  title: PropTypes.string,
-  image: PropTypes.string.isRequired,
-};
 
 export default Banner;
