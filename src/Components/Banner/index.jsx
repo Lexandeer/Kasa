@@ -4,7 +4,9 @@ import checkType from '../../Utils/prop-types';
 
 function Banner({ title, image }) {
   // Définition des types de props pour le composant Banner.
-  checkType(title, 'string');
+  if (title !== undefined) {
+    checkType(title, 'string');
+  }
   checkType(image, 'string');
 
   return (

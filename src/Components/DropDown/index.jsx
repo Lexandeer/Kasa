@@ -5,14 +5,24 @@ import '../../Utils/style/animation.scss';
 import checkType from '../../Utils/prop-types/index.jsx';
 
 function DropDown({ title, content, id }) {
+  //Définition des props
   checkType(title, 'string');
-  checkType(id, 'string');
+
+  // Vérifie si l'ID est défini avant de vérifier son type, car dans le component A-propos, il n'y a pas d'id pour les dropDowns
+  if (id !== undefined) {
+    checkType(id, 'string');
+  }
+
   // "Content" peut être un tableau ou une string en fonction du logement.
   if (typeof content !== 'string' && !Array.isArray(content)) {
-    throw new Error(
-      `Type error: expected type was string or array but got '${typeof content}'`
-    );
+    // Gérer le cas où 'content' est un élément JSX (objet React)
+    if (!React.isValidElement(content)) {
+      throw new Error(
+        `Type error: expected type was string, array, or React element but got '${typeof content}'`
+      );
+    }
   }
+
   // On déclare un état local 'isOpen' pour suivre l'état du drop-down (ouvert ou fermé).
   const [isOpen, setIsOpen] = useState(null);
 
