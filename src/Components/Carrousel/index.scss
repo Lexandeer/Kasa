@@ -35,8 +35,10 @@
   .carrousel__number-of {
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    right: 50%;
     color: #fff;
+    font-weight: 500;
+    font-size: 20px;
     padding: 5px 10px;
     border-radius: 5px;
   }
