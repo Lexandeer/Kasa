@@ -48,31 +48,38 @@ function Carrousel({ logement }) {
     );
   };
 
+  const hasMultipleImages = logement.pictures.length > 1;
+  
+
   return (
     <div>
       <section>
         <div className="fiche-logement__carrousel">
-          <button
-            className="carrousel__arrow carrousel__arrow--right"
-            onClick={handleNext}
-          >
-            <img src={arrowRight} alt="Next" />
-          </button>
-          <button
-            className="carrousel__arrow carrousel__arrow--left"
-            onClick={handlePrev}
-          >
-            <img src={arrowLeft} alt="Previous" />
-          </button>
+          {/*On affiche les flèches seulement s'il y a plus d'une image */}
+          {hasMultipleImages && (
+             <><button
+             className="carrousel__arrow carrousel__arrow--right"
+             onClick={handleNext}>  
+             <img src={arrowRight} alt="Next" />
+           </button>
+ 
+           <button
+             className="carrousel__arrow carrousel__arrow--left"
+             onClick={handlePrev}>       
+             <img src={arrowLeft} alt="Previous" />
+           </button></>
+            )}
           {/* Images de pictures pour le carrousel */}
           <img
             src={logement.pictures[index]}
             className="carrousel__pictures"
             alt={logement.title}
           />
-          <span className="carrousel__number-of">
+          {/*On affiche les flèches seulement s'il y a plus d'une image */}
+            {hasMultipleImages && (<span className= "carrousel__number-of">
             {index + 1}/{logement.pictures.length}
-          </span>
+          </span>)}
+          
         </div>
         <div className="fiche-logement__description">
           <div className="description__title-tags">
