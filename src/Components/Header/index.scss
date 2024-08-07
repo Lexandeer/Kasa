@@ -3,27 +3,33 @@
 .header {
   display: flex;
   flex-direction: row;
-  margin: 30px 100px 80px 100px;
+  margin: 40px 100px 50px 100px;
 
   .header__nav {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 
+  
     .header__nav__liste {
       display: flex;
-      gap: 50px;
+      gap: 60px;
       font-size: 24px;
 
       li {
         list-style-type: none;
 
         .header__nav__liste__lien {
+          font-size: 26px;
           text-decoration: none;
           color: $black;
+          font-weight: 500;
 
-          &:hover {
+          &.active {
+            
             text-decoration: underline;
+            text-decoration-thickness: 2px;
           }
         }
       }

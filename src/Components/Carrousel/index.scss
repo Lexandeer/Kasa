@@ -53,11 +53,11 @@
     flex-direction: column;
 
     .title-tags__title {
-      font-size: 28px;
+      font-size: 32px;
       margin-bottom: 5px;
       color: $primary-color;
       margin-top: 50px;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .title-tags__location {
@@ -75,8 +75,8 @@
 
       .tags__tag {
         background-color: $primary-color;
-        padding: 10px 50px;
-        border-radius: 15px;
+        padding: 5px 40px;
+        border-radius: 10px;
         color: $white;
         font-weight: 600;
       }
